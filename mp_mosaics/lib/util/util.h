@@ -41,10 +41,10 @@ extern const char * error_prefix;
  * From Abhay:                                                        
  * @see http://stackoverflow.com/questions/1801892/making-mapfind-operation-case-insensitive 
  */
-struct ci_less : std::binary_function<std::string, std::string, bool>
+struct ci_less
 {
     // case-independent (ci) compare_less binary function
-    struct nocase_compare : public std::binary_function<unsigned char,unsigned char,bool> 
+    struct nocase_compare
     {
         bool operator() (const unsigned char& c1, const unsigned char& c2) const
         {
