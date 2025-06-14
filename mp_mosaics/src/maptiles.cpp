@@ -19,6 +19,7 @@ MosaicCanvas* mapTiles(SourceImage const& theSource,
                        vector<TileImage>& theTiles)
 {
     
+    cerr << "entering map tiles";
     // new mosaic has the exact same rows and column
     MosaicCanvas* mosaic = new MosaicCanvas(theSource.getRows(), theSource.getColumns());
 
@@ -29,6 +30,7 @@ MosaicCanvas* mapTiles(SourceImage const& theSource,
 
     map<Point<3>, TileImage> tile_map;
 
+    cerr << "start of first loop";
 
     for (unsigned int i = 0; i < theTiles.size(); i++) {
         LUVAPixel cur_pixel = theTiles[i].getAverageColor();
@@ -45,7 +47,7 @@ MosaicCanvas* mapTiles(SourceImage const& theSource,
 
 
     
-
+    cerr << "start of second loop";
     // construct a tree based on theTiles
     KDTree<3> tree = KDTree<3>(tile_point);
 
@@ -63,6 +65,8 @@ MosaicCanvas* mapTiles(SourceImage const& theSource,
             mosaic->setTile(i, j, new TileImage(tile_map[best_point]));
         }
     }
+
+    cerr << "returning back from map tiles";
 
     return mosaic;
 }
