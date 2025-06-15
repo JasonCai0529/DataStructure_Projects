@@ -63,6 +63,7 @@ void MosaicCanvas::setTile(int row, int column, TileImage* i)
         cerr.flush();
     }
     myImages[row * columns + column] = i;
+    
 }
 
 const TileImage& MosaicCanvas::getTile(int row, int column)
