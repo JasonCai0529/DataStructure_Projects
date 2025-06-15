@@ -23,6 +23,7 @@ namespace opts
 }
 
 // ./mosaics background_image.png tile_directory/ [number of tiles] [pixels per tile] [output_image.png]
+// must sepecify first two, default 100 50 output.png
 int main(int argc, const char** argv) {
     
     string inFile = "";
